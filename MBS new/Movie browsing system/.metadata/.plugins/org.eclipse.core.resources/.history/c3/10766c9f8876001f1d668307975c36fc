@@ -1,0 +1,43 @@
+package AdminMoviehandle;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+public class adminmovieshowModel {
+	
+	static Connection con;
+	static Statement stmt;
+	static ResultSet rSet;
+	
+	
+	
+	public static List<Movie>showmovie(){
+		
+		ArrayList<Movie> movies=new ArrayList<>();
+		
+		try {
+			con=DBcon.DBconnection();
+			stmt=con.createStatement();
+			String sql="SELECT MovieName, MovieShortdes, MovieLongdes from movies";
+			rSet=stmt.executeQuery(sql);
+			
+			while(rSet.next()) {
+				
+				String name=rSet.getString(2);
+				String shortdescription=rSet.getString(4);
+				String longdescription=rSet.getString(5);
+				
+				
+			}
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
+	}
+
+}

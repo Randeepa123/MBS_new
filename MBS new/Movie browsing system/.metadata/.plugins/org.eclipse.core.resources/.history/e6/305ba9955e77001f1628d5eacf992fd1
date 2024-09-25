@@ -1,0 +1,47 @@
+package Models;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import javax.servlet.http.Part;
+
+import Utill.DBcon;
+import Utill.ImageUpload;
+
+public class adminCreatemodel {
+	
+
+	static Connection con;
+	static PreparedStatement stmt;
+	static boolean isTrue=false;
+	
+	public static Boolean CreateMovie(String name,String shortDes,String LongDes,String imageName,String movieName) {
+	
+	try {
+	con=DBcon.DBconnection();
+	String sql="Insert into movies (MovieName,MovieImgPath,	MovieShortdes,MovieLongdes,MoviePath) Values(?,?,?,?,?)";
+	stmt=con.prepareStatement(sql);
+	
+	stmt.setString(2, name);
+	stmt.setString(4, shortDes);
+	stmt.setString(5, LongDes);
+	stmt.setString(3, imageName);
+	stmt.setString(6, movieName);
+	
+	int row=stmt.executeUpdate(); }catch (Exception e) {
+		e.printStackTrace();
+	}
+	
+
+		if (row>0) {
+			isTrue=true;
+		}
+		
+		else {
+			isTrue=false;
+		}
+	
+		
+	} 
+
+}

@@ -1,0 +1,16 @@
+package Utill;
+
+import java.io.File;
+
+
+public class ImageUpload {
+	
+	String filepath="C:/Users/HP/OneDrive/Desktop/Movie browsing system/Sriflix/src/main/webapp/UploadedImages";
+	File uploadfolder=new File(filepath);
+	if(!uploadfolder.exits()) {
+		
+		uploadfolder.mkdir();
+		
+	}
+
+}

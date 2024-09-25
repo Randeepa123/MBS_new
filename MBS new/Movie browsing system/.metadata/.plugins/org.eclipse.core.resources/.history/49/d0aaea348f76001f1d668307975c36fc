@@ -1,0 +1,57 @@
+package AdminMoviehandle;
+
+public class Movie {
+	
+	private int Movieid;
+	private String Moviename;
+	private String MovieimgPath;
+	private String Movieshortdes;
+	private String Movielongdes;
+	private String Moviepath;
+	
+	
+	public Movie(int movieid, String moviename, String movieimgPath, String movieshortdes, String movielongdes,String moviepath) {
+		
+		Movieid = movieid;
+		Moviename = moviename;
+		MovieimgPath = movieimgPath;
+		Movieshortdes = movieshortdes;
+		Movielongdes = movielongdes;
+		Moviepath = moviepath;
+	}
+
+
+	public int getMovieid() {
+		return Movieid;
+	}
+
+
+	public String getMoviename() {
+		return Moviename;
+	}
+
+
+	public String getMovieimgPath() {
+		return MovieimgPath;
+	}
+
+
+	public String getMovieshortdes() {
+		return Movieshortdes;
+	}
+
+
+	public String getMovielongdes() {
+		return Movielongdes;
+	}
+
+
+	public String getMoviepath() {
+		return Moviepath;
+	}
+
+	
+	
+	
+
+}

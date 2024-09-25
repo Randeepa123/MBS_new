@@ -1,0 +1,315 @@
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Guest_and_srcs/Styles/bootstrap.min.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="Guest_and_srcs/Styles/admin1_home.css">
+    <title>Sriflix</title>
+    <link rel="stylesheet" href="header.css">
+</head>
+<body>
+<!-- navigation bar -->
+    <nav>
+        <div class="container">
+            <div class="logo">Sriflix</div> 
+
+            <div class="navlinks">                               
+                <a class="active" href="AdminmovieShowcontroller">Home</a>
+                <a href="Admin_Movies.html">Movies</a>
+                <a  href="actors.html">Actors</a>
+                <a href="#">Contact Us</a>
+                
+            </div>
+
+                <div class="buttons">
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="#">Profile</a>
+
+            
+                
+            </div>
+        </div>
+    </nav>
+<!-- End navigation bar -->
+
+<!-- carousel -->
+<div id="movieCarousel" class="carousel slide " data-bs-ride="carousel"data-bs-interval="3000" >
+    <div class="carousel-inner">
+        <div class="carousel-item active" style="background-image: url(' Guest_and_srcs/Images/Image1.jpg');border-radius: 20px;">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Pathaan</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex earum cumque quaerat eveniet officia inventore eum nulla, quae ducimus deserunt. Consectetur nulla libero totam eos accusantium enim at temporibus recusandae!</p>
+                
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url(' Guest_and_srcs/Images/Image2.jpg');border-radius: 20px">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Brave</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias porro odit voluptas debitis deleniti! Tempora ipsa laudantium at quae numquam accusamus perspiciatis fuga sit deleniti. Numquam non exercitationem dolores facilis.</p>
+                
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url(' Guest_and_srcs/Images/Image3.jpg');border-radius: 20px">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>London Has Fallen</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae qui nobis aliquam veniam? Minima, omnis rem placeat magni eius quam, illum quia unde inventore saepe ullam culpa beatae veritatis quod.</p>
+                
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url(' Guest_and_srcs/Images/Image4.jpg');border-radius: 20px">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>The Lego Movie</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus qui, reprehenderit optio distinctio, sapiente voluptatem fugiat quasi facere, dolorum consectetur explicabo nisi dicta facilis neque consequatur voluptas aspernatur. Quos, labore.</p>
+                
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url(' Guest_and_srcs/Images/Image5.jpg');border-radius: 20px">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Avatar</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ipsam eligendi labore fuga nulla laboriosam soluta ullam qui illum animi repellendus odit veritatis voluptas, eaque et! Sit accusamus porro harum!</p>
+                
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url(' Guest_and_srcs/Images/Image6.jpg');border-radius: 20px">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Oppenhiemer</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ipsam eligendi labore fuga nulla laboriosam soluta ullam qui illum animi repellendus odit veritatis voluptas, eaque et! Sit accusamus porro harum!</p>
+                
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#movieCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#movieCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+<!-- end of carousel -->
+
+<!-- movie cards -->
+<h4 style="color: rgb(130, 128, 128);margin-top: 50px;margin-left: 45px;margin-bottom: 0;">Top Movies</h4>
+<div class="tcontainer mt-5">
+    
+<c:forEach var="Movies" items="${movieDetails}">
+    <!-- Movie Card -->
+    <div class="col-lg-3 col-md-6">
+        <div class="card movie-card">
+            <img src="UploadedImages/${Movies.movieimgPath}" class="card-img-top" alt="Movie Poster">
+            <div class="card-body">
+                <h5 class="card-title">${Movies.moviename}</h5>
+                <p class="card-text">${Movies.movieshortdes}</p>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Updateform${Movies.movieid}">
+                    <i class="bi bi-pen"></i> Edit Movie Details
+                </button>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteform${Movies.movieid}">
+                    <i class="bi bi-trash"></i> Delete Movie 
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update form -->
+    <div class="modal fade" id="Updateform${Movies.movieid}" tabindex="-1" aria-labelledby="UpdateformLabel${Movies.movieid}" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="UpdateformLabel${Movies.movieid}">Update Movie</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="MovieUpdateServelet" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="movieId" value="${Movies.movieid}" />
+                        <div class="mb-3">
+                            <label for="movieName" class="form-label">Movie Name</label>
+                            <input type="text" class="form-control" id="movieName" name="movieName" value="${Movies.moviename}" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="shortDescription" class="form-label">Short Description</label>
+                            <textarea class="form-control" id="shortDescription" name="shortDescription" rows="3" >${Movies.movieshortdes}</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="longDescription" class="form-label">Long Description</label>
+                            <textarea class="form-control" id="longDescription" name="longDescription" rows="3" >${Movies.movielongdes}</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="movieImage" class="form-label">Upload Movie Image</label>
+                            <input type="file" class="form-control" id="movieImage" name="movieImage"accept="image/*">
+                        </div>
+                        <div class="mb-3">
+            				<label for="movieFile" class="form-label">Upload Movie File</label>
+            				<input type="file" class="form-control" id="movieFile" name="movieFile"accept="video/*" >
+          				</div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save Movie</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Delete form -->
+    <div class="modal" tabindex="-1"id="deleteform${Movies.movieid}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Alert!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form action="MovieDeleteServelet" method="post">
+      <input type="hidden" name="movieId" value="${Movies.movieid}" />
+        <p>Are You sure You want to delete ${Movies.moviename} ! </p>
+      </form>
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="submit" class="btn btn-primary">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+	
+	
+</c:forEach>
+       
+       <div class="col-lg-3 col-md-6">
+        <div class="card movie-card">
+            <img src="add_sign.jpg" class="card-img-top" alt="Movie Poster 1">
+            <div class="card-body">
+                <h5 class="card-title">Add Movie</h5>
+                <p class="card-text">Add movie</p>
+                
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <i class="bi bi-plus"></i> Add Movie
+                    </button>
+                
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  		<div class="modal-dialog">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<h1 class="modal-title fs-5" id="exampleModalLabel">Insert A New Movie</h1>
+        			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      			</div>
+      			<div class="modal-body">
+        		<form action="imageuploadServelet" method="post" enctype="multipart/form-data">
+          		<!-- Movie Name Input -->
+         			 <div class="mb-3">
+            			<label for="movieName" class="form-label">Movie Name</label>
+            			<input type="text" class="form-control" id="movieName" name="movieName" placeholder="Enter Movie Name" required>
+          			</div>
+
+          		<!-- Short Description Input -->
+          			<div class="mb-3">
+            			<label for="shortDescription" class="form-label">Short Description</label>
+            			<input type="text" class="form-control" id="shortDescription" name="shortDescription" placeholder="Enter Short Description" required>
+          			</div>
+
+          		<!-- Long Description Input -->
+          			<div class="mb-3">
+            			<label for="longDescription" class="form-label">Long Description</label>
+            			<textarea class="form-control" id="longDescription" name="longDescription" rows="3" placeholder="Enter Long Description" required></textarea>
+          			</div>
+
+          		<!-- Upload Movie Image -->
+          			<div class="mb-3">
+            			<label for="movieImage" class="form-label">Upload Movie Image</label>
+            			<input type="file" class="form-control" id="movieImage" name="movieImage" accept="image/*" required>
+          			</div>
+
+          		<!-- Upload Movie File -->
+          			<div class="mb-3">
+            			<label for="movieFile" class="form-label">Upload Movie File</label>
+            			<input type="file" class="form-control" id="movieFile" name="movieFile" accept="video/*" required>
+          			</div>
+          			<div class="modal-footer">
+        			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        			<button type="submit" class="btn btn-primary">Save Movie</button>
+      			</div>
+        		</form>
+     	 		</div>
+      			
+    		</div>
+  		</div>
+	</div>
+	
+	
+ <!-- end of movie cards -->
+
+<!-- poster -->
+
+<div class="jumbotron">
+        <div class="overlay">
+            <div class="txt">
+                
+                 <h1 class="display-4" >Welcome Admin! </h1>
+                 <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                 <hr class="my-4">
+                 <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                
+            </div>
+        </div>
+    
+</div>
+
+<!-- end of poster -->
+
+<!-- footer -->
+<footer class="bg-dark text-white py-4">
+    
+    <div class="row">
+      
+      <div class="col-md-4">
+        <h5 style="text-align: center;">About Us</h5>
+        <p>Your movie browsing system is a platform to explore and enjoy a wide range of movies and TV series. Discover your next favorite movie with us.</p>
+      </div>
+
+      
+      <div class="text-center col-md-4">
+        <h5 >Quick Links</h5>
+        <ul  class="list-unstyled">
+          <li><a href="#" class="text-white">Home</a></li>
+          <li><a href="#" class="text-white">Browse Movies</a></li>
+          <li><a href="#" class="text-white">Contact Us</a></li>
+          <li><a href="#" class="text-white">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="col-md-3">
+        <h5>Follow Us On</h5>
+        <a href="https://www.facebook.com/" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+        <a href="https://x.com/?lang=en&mx=2" class="text-white me-2"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.instagram.com/" class="text-white me-2"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.youtube.com" class="text-white"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+    <div class="text-center pt-3">
+      <p>&copy; 2024 OOP Movie Browsing System. All rights reserved.</p>
+    </div>
+  </div>
+
+</footer> 
+<!-- end footer -->
+<script src=" Guest_and_srcs/JS/bootstrap.bundle.min.js"></script>
+</body>
+</html>

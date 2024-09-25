@@ -1,0 +1,23 @@
+package Models;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import Utill.DBcon;
+
+public class adminUpdatemodel {
+	
+	static Connection con;
+	static PreparedStatement stmt;
+	static boolean isTrue;
+	
+	public static boolean Updatemodel(String name,String shortDes,String LongDes,String imageName,String movieName) {
+		
+		con=DBcon.DBconnection();
+		String sql="Update movies Set"
+				+ "";
+		
+	}
+	
+	
+
+}

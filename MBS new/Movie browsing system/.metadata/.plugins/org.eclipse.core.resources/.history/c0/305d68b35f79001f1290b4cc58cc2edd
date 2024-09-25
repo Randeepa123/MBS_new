@@ -1,0 +1,50 @@
+package Controllers;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class CommentShowServelet
+ */
+@WebServlet("/CommentShowServelet")
+public class CommentShowServelet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		// Retrieve movie details from the form
+        String movieId = request.getParameter("ID");
+        String moviename = request.getParameter("moviename");
+        String moviedes = request.getParameter("moviedes");
+        String moviepath = request.getParameter("moviepath");
+
+        // Pass the data as request attributes to the unique movie JSP
+        request.setAttribute("ID", movieId);
+        request.setAttribute("moviename", moviename);
+        request.setAttribute("moviedes", moviedes);
+        request.setAttribute("moviepath", moviepath);
+
+        // Forward the request to a unique JSP page based on the movie ID
+        RequestDispatcher dispatcher = request.getRequestDispatcher("movieDetails_" + movieId + ".jsp");
+        dispatcher.forward(request, response);
+    }
+		
+	}
+
+}

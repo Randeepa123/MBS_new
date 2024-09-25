@@ -1,0 +1,54 @@
+package Controllers;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class CommentShowServelet
+ */
+@WebServlet("/CommentShowServelet")
+public class CommentShowServelet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 
+	        String moviename = request.getParameter("moviename");
+	        String moviedes = request.getParameter("moviedes");
+	        String moviepath = request.getParameter("moviepath");
+	        String movieId = request.getParameter("ID");
+
+	        // Process the comment (e.g., save it to the database)
+	        // Save comment code logic here...
+
+	        // After processing, redirect back to the original movie page with parameters
+	        String redirectURL = "Movies.jsp?moviename=" + moviename +
+	                             "&moviedes=" + moviedes +
+	                             "&moviepath=" + moviepath +
+	                             "&ID=" + movieId;
+
+	        // Redirect back to the movie page
+	        response.sendRedirect(redirectURL);
+	    }
+		
+	}
+
+}
